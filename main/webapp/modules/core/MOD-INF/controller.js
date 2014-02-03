@@ -313,8 +313,8 @@ function init() {
       "externals/date.js",
       "externals/jquery.i18n.js",
       
-      "externals/CFInstall.min.js",
-      "scripts/chrome-frame.js",
+      /*"externals/CFInstall.min.js",
+      "scripts/chrome-frame.js",*/
 
       "scripts/util/misc.js",
       "scripts/util/url.js",
@@ -391,8 +391,8 @@ function init() {
       "externals/jquery.i18n.js",
       "externals/underscore-min.js",
 
-      "externals/CFInstall.min.js",
-      "scripts/chrome-frame.js",
+      /*"externals/CFInstall.min.js",
+      "scripts/chrome-frame.js",*/
 
       "scripts/project.js",
 
