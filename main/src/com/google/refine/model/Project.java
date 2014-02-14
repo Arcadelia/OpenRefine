@@ -55,12 +55,12 @@ import org.json.JSONWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.refine.ProjectDataStore;
 import com.google.refine.ProjectManager;
 import com.google.refine.ProjectMetadata;
 import com.google.refine.RefineServlet;
 import com.google.refine.history.History;
 import com.google.refine.history.HistoryEntry;
-import com.google.refine.io.ProjectDataStore;
 import com.google.refine.process.ProcessManager;
 import com.google.refine.util.ParsingUtilities;
 import com.google.refine.util.Pool;
@@ -294,9 +294,9 @@ public class Project {
     public void saveMetadata(ProjectMetadata metadata) throws JSONException, IOException {
         _dataStore.saveMetadata(metadata);
     }
-
-    public Project.ProjectInfo getInfo() {
-        return _dataStore.getProjectInfo();
+    
+    public ProjectMetadata recoverMetadata() {
+        return _dataStore.recoverMetadata();
     }
 
     public void update() {
@@ -308,17 +308,5 @@ public class Project {
     //TODO make the processManager variable private, and force all calls through this method
     public ProcessManager getProcessManager() {
         return this.processManager;
-    }
-    
-    public static class ProjectInfo {
-        public final long created;
-        public final long modified;
-        public final String location;
-        
-        public ProjectInfo(long created, long modified, String location) {
-            this.created = created;
-            this.modified = modified;
-            this.location = location;
-        }
     }
 }

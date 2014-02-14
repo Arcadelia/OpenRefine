@@ -49,6 +49,7 @@ import org.json.JSONWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.refine.ProjectDataStore;
 import com.google.refine.ProjectManager;
 import com.google.refine.ProjectMetadata;
 import com.google.refine.history.HistoryEntryManager;
@@ -105,7 +106,7 @@ public class FileProjectManager extends ProjectManager {
         synchronized (this) {
             ProjectMetadata metadata = project.loadMetadata();
             if (metadata == null) {
-                metadata = ProjectMetadataUtilities.recover(project);
+                metadata = project.recoverMetadata();
             }
             if (metadata != null) {
                 _projectsMetadata.put(project.id, metadata);

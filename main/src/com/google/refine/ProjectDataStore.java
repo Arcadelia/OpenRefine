@@ -1,4 +1,4 @@
-package com.google.refine.io;
+package com.google.refine;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,7 +6,6 @@ import java.io.InputStream;
 import org.apache.tools.tar.TarOutputStream;
 import org.json.JSONException;
 
-import com.google.refine.ProjectMetadata;
 import com.google.refine.history.HistoryEntry;
 import com.google.refine.model.Project;
 
@@ -27,5 +26,5 @@ public abstract class ProjectDataStore {
     public abstract void saveChange(HistoryEntry historyEntry) throws IOException;
     public abstract ProjectMetadata loadMetadata();
     public abstract void saveMetadata(ProjectMetadata metadata) throws JSONException, IOException;
-    public abstract Project.ProjectInfo getProjectInfo();
+    public abstract ProjectMetadata recoverMetadata();
 }
